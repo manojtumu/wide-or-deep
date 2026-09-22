@@ -84,7 +84,9 @@ class Shape:
         """6 per parameter for fwd+bwd through every matmul, plus attention scores.
 
         The second term is 12*L*d*seq: QK^T and AV are each 2*seq*d per token
-        forward, tripled for backward, halved by the causal mask. Leaving it out
+        forward over the full T x T matrix, tripled for backward. This is the
+        PaLM / Chinchilla / Megatron convention that published MFU figures use;
+        a causal flash-attention kernel executes roughly half of it. Leaving it out
         -- which the usual 6N approximation does -- understates a deep shape by
         far more than a wide one, because it scales with layers times width.
         """
