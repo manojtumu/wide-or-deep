@@ -1,7 +1,7 @@
 # Wide or Deep?
 
 Code and run records for *Wide or Deep? How Model Shape Sets Your Training Bill*
-(article link to follow).
+at https://manojtumu.github.io/.
 
 Three decoder-only transformers with roughly matched block parameters, trained on
 the same data for 8B tokens with three seeds each, then measured two ways: how much
